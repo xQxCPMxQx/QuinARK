@@ -30,3 +30,6 @@ C:\Users\zenenlars\Documents\Visual Studio 2013\Projects\QuinARK\QuinnARK\bin\Re
 C:\Users\zenenlars\Documents\Visual Studio 2013\Projects\QuinARK\QuinnARK\bin\Release\SharpDX.Toolkit.xml
 C:\Users\zenenlars\Documents\Visual Studio 2013\Projects\QuinARK\QuinnARK\bin\Release\SharpDX.Toolkit.Graphics.xml
 C:\Users\zenenlars\Documents\Visual Studio 2013\Projects\QuinARK\QuinnARK\obj\Debug\Quin ARK.csprojResolveAssemblyReference.cache
+C:\Users\larsk_000\Documents\GitHub\QuinARK\QuinnARK\bin\Release\Quin ARK.exe.config
+C:\Users\larsk_000\Documents\GitHub\QuinARK\QuinnARK\obj\Debug\Quin ARK.exe
+C:\Users\larsk_000\Documents\GitHub\QuinARK\QuinnARK\obj\Debug\Quin ARK.pdb

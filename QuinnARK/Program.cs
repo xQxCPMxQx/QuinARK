@@ -144,11 +144,15 @@ namespace Tristana
     }
 }
 
+
+ 
+
 // Drawing.OnDraw += Drawing_OnDraw;
-//          var combo = Config.AddSubMenu(new Menu("Combo", "combo"));
-//          combo.AddItem(new MenuItem("Combo Mode", "Combo Mode"))
-//         .SetValue(new KeyBind("X".ToCharArray()[0], KeyBindType.Press));
+ 
+// var combo = Config.AddSubMenu(new Menu("Combo", "combo"));
+// combo.AddItem(new MenuItem("Combo Mode", "Combo Mode"))
+// .SetValue(new KeyBind("X".ToCharArray()[0], KeyBindType.Press));
+
 // ItemData. >>item list shows 
-//
-//
+
 
