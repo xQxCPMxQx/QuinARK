@@ -86,7 +86,10 @@ namespace Tristana
             combo.AddItem(new MenuItem("UseE", "Use E - Explosive Shot").SetValue(true));
             combo.AddItem(new MenuItem("UseR", "Use R Finisher").SetValue(true));
 
-           
+           //Author
+
+            Config.SubMenu("ScienceARK Series");
+
             
             //Main MENU!!
 
