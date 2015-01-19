@@ -38,6 +38,7 @@ namespace Tristana
                 if (player.ChampionName != CHAMP_NAME)
                 return;
 
+
             //Spells
 
             Q = new Spell(SpellSlot.Q,1000);
@@ -67,7 +68,7 @@ namespace Tristana
 
             var combo = Config.AddSubMenu(new Menu("Combo", "combo"));
             combo.AddItem(new MenuItem("Combo Mode", "Combo Mode"))
-                .SetValue(new KeyBind("X".ToCharArray()[0], KeyBindType.Press));
+            .SetValue(new KeyBind("X".ToCharArray()[0], KeyBindType.Press));
 
 
             //Misc Menu
@@ -118,6 +119,7 @@ namespace Tristana
                 if (Config.Item("Combo Mode").GetValue<KeyBind>().Active)
                 {
                     var Target = TargetSelector.GetTarget(Q.Range, TargetSelector.DamageType.Physical);
+                    var Botrk = ItemData.Blade_of_the_Ruined_King.GetItem();
                     if (Target == null)
                         return;
                     if (Q.IsReady() && Target.IsValidTarget(Q.Range));
@@ -131,6 +133,10 @@ namespace Tristana
                     if (R.IsReady() && Target.IsValidTarget(E.Range));
                     {
                         R.Cast();
+                    }
+                    if (Botrk.IsReady() && Botrk.IsOwned(ObjectManager.Player) && Botrk.IsInRange(Target)) ;
+                    {
+                        Botrk.Cast();
                     }
                 }
 
