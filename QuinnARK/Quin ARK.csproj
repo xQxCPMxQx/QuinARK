@@ -36,13 +36,13 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="LeagueSharp">
-      <HintPath>C:\Users\zenenlars\Creative Cloud Files\Desktop\Lars\AQ\AQ\LeagueSharp\\System\LeagueSharp.dll</HintPath>
+      <HintPath>C:\Users\Lars Keulen\Desktop\Lars\AQ\LeagueSharp\\System\LeagueSharp.dll</HintPath>
     </Reference>
     <Reference Include="LeagueSharp.Common">
-      <HintPath>C:\Users\zenenlars\Creative Cloud Files\Desktop\Lars\AQ\AQ\LeagueSharp\\System\LeagueSharp.Common.dll</HintPath>
+      <HintPath>C:\Users\Lars Keulen\Desktop\Lars\AQ\LeagueSharp\\System\LeagueSharp.Common.dll</HintPath>
     </Reference>
     <Reference Include="SharpDX">
-      <HintPath>C:\Users\zenenlars\Creative Cloud Files\Desktop\Lars\AQ\AQ\LeagueSharp\\System\SharpDX.dll</HintPath>
+      <HintPath>C:\Users\Lars Keulen\Desktop\Lars\AQ\LeagueSharp\\System\SharpDX.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />

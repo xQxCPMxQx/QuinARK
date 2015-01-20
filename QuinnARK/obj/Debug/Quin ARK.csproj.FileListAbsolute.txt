@@ -1,45 +1,16 @@
-c:\users\zenenlars\documents\visual studio 2013\Projects\Quin ARK\Quin ARK\obj\Debug\Quin ARK.csprojResolveAssemblyReference.cache
-c:\users\zenenlars\documents\visual studio 2013\Projects\Quin ARK\Quin ARK\bin\Release\Quin ARK.exe.config
-c:\users\zenenlars\documents\visual studio 2013\Projects\Quin ARK\Quin ARK\bin\Release\Quin ARK.exe
-c:\users\zenenlars\documents\visual studio 2013\Projects\Quin ARK\Quin ARK\bin\Release\Quin ARK.pdb
-c:\users\zenenlars\documents\visual studio 2013\Projects\Quin ARK\Quin ARK\bin\Release\LeagueSharp.Common.dll
-c:\users\zenenlars\documents\visual studio 2013\Projects\Quin ARK\Quin ARK\bin\Release\LeagueSharp.dll
-c:\users\zenenlars\documents\visual studio 2013\Projects\Quin ARK\Quin ARK\bin\Release\SharpDX.dll
-c:\users\zenenlars\documents\visual studio 2013\Projects\Quin ARK\Quin ARK\bin\Release\SharpDX.Direct3D9.dll
-c:\users\zenenlars\documents\visual studio 2013\Projects\Quin ARK\Quin ARK\bin\Release\SharpDX.Toolkit.dll
-c:\users\zenenlars\documents\visual studio 2013\Projects\Quin ARK\Quin ARK\bin\Release\SharpDX.Toolkit.Graphics.dll
-c:\users\zenenlars\documents\visual studio 2013\Projects\Quin ARK\Quin ARK\bin\Release\clipper_library.dll
-c:\users\zenenlars\documents\visual studio 2013\Projects\Quin ARK\Quin ARK\bin\Release\LeagueSharp.xml
-c:\users\zenenlars\documents\visual studio 2013\Projects\Quin ARK\Quin ARK\bin\Release\SharpDX.Toolkit.xml
-c:\users\zenenlars\documents\visual studio 2013\Projects\Quin ARK\Quin ARK\bin\Release\SharpDX.Toolkit.Graphics.xml
-c:\users\zenenlars\documents\visual studio 2013\Projects\Quin ARK\Quin ARK\obj\Debug\Quin ARK.exe
-c:\users\zenenlars\documents\visual studio 2013\Projects\Quin ARK\Quin ARK\obj\Debug\Quin ARK.pdb
-C:\Users\zenenlars\Documents\Visual Studio 2013\Projects\QuinARK\QuinnARK\bin\Release\Quin ARK.exe.config
-C:\Users\zenenlars\Documents\Visual Studio 2013\Projects\QuinARK\QuinnARK\obj\Debug\Quin ARK.exe
-C:\Users\zenenlars\Documents\Visual Studio 2013\Projects\QuinARK\QuinnARK\obj\Debug\Quin ARK.pdb
-C:\Users\zenenlars\Documents\Visual Studio 2013\Projects\QuinARK\QuinnARK\bin\Release\Quin ARK.exe
-C:\Users\zenenlars\Documents\Visual Studio 2013\Projects\QuinARK\QuinnARK\bin\Release\Quin ARK.pdb
-C:\Users\zenenlars\Documents\Visual Studio 2013\Projects\QuinARK\QuinnARK\bin\Release\LeagueSharp.Common.dll
-C:\Users\zenenlars\Documents\Visual Studio 2013\Projects\QuinARK\QuinnARK\bin\Release\LeagueSharp.dll
-C:\Users\zenenlars\Documents\Visual Studio 2013\Projects\QuinARK\QuinnARK\bin\Release\SharpDX.dll
-C:\Users\zenenlars\Documents\Visual Studio 2013\Projects\QuinARK\QuinnARK\bin\Release\SharpDX.Direct3D9.dll
-C:\Users\zenenlars\Documents\Visual Studio 2013\Projects\QuinARK\QuinnARK\bin\Release\SharpDX.Toolkit.dll
-C:\Users\zenenlars\Documents\Visual Studio 2013\Projects\QuinARK\QuinnARK\bin\Release\SharpDX.Toolkit.Graphics.dll
-C:\Users\zenenlars\Documents\Visual Studio 2013\Projects\QuinARK\QuinnARK\bin\Release\clipper_library.dll
-C:\Users\zenenlars\Documents\Visual Studio 2013\Projects\QuinARK\QuinnARK\bin\Release\LeagueSharp.xml
-C:\Users\zenenlars\Documents\Visual Studio 2013\Projects\QuinARK\QuinnARK\bin\Release\SharpDX.Toolkit.xml
-C:\Users\zenenlars\Documents\Visual Studio 2013\Projects\QuinARK\QuinnARK\bin\Release\SharpDX.Toolkit.Graphics.xml
-C:\Users\zenenlars\Documents\Visual Studio 2013\Projects\QuinARK\QuinnARK\obj\Debug\Quin ARK.csprojResolveAssemblyReference.cache
-C:\Users\larsk_000\Documents\GitHub\QuinARK\QuinnARK\bin\Release\Quin ARK.exe.config
-C:\Users\larsk_000\Documents\GitHub\QuinARK\QuinnARK\obj\Debug\Quin ARK.exe
-C:\Users\larsk_000\Documents\GitHub\QuinARK\QuinnARK\obj\Debug\Quin ARK.pdb
-C:\Users\larsk_000\Documents\GitHub\QuinARK\QuinnARK\bin\Release\Quin ARK.exe
-C:\Users\larsk_000\Documents\GitHub\QuinARK\QuinnARK\bin\Release\Quin ARK.pdb
-C:\Users\larsk_000\Documents\GitHub\QuinARK\QuinnARK\bin\Release\SharpDX.Direct3D9.dll
-C:\Users\larsk_000\Documents\GitHub\QuinARK\QuinnARK\bin\Release\SharpDX.Toolkit.dll
-C:\Users\larsk_000\Documents\GitHub\QuinARK\QuinnARK\bin\Release\SharpDX.Toolkit.Graphics.dll
-C:\Users\larsk_000\Documents\GitHub\QuinARK\QuinnARK\bin\Release\clipper_library.dll
-C:\Users\larsk_000\Documents\GitHub\QuinARK\QuinnARK\bin\Release\LeagueSharp.xml
-C:\Users\larsk_000\Documents\GitHub\QuinARK\QuinnARK\bin\Release\SharpDX.Toolkit.xml
-C:\Users\larsk_000\Documents\GitHub\QuinARK\QuinnARK\bin\Release\SharpDX.Toolkit.Graphics.xml
-C:\Users\larsk_000\Documents\GitHub\QuinARK\QuinnARK\obj\Debug\Quin ARK.csprojResolveAssemblyReference.cache
+C:\Users\Lars Keulen\Documents\GitHub\QuinARK\QuinnARK\bin\Release\Quin ARK.exe.config
+C:\Users\Lars Keulen\Documents\GitHub\QuinARK\QuinnARK\bin\Release\Quin ARK.exe
+C:\Users\Lars Keulen\Documents\GitHub\QuinARK\QuinnARK\bin\Release\Quin ARK.pdb
+C:\Users\Lars Keulen\Documents\GitHub\QuinARK\QuinnARK\bin\Release\LeagueSharp.Common.dll
+C:\Users\Lars Keulen\Documents\GitHub\QuinARK\QuinnARK\bin\Release\LeagueSharp.dll
+C:\Users\Lars Keulen\Documents\GitHub\QuinARK\QuinnARK\bin\Release\SharpDX.dll
+C:\Users\Lars Keulen\Documents\GitHub\QuinARK\QuinnARK\bin\Release\SharpDX.Direct3D9.dll
+C:\Users\Lars Keulen\Documents\GitHub\QuinARK\QuinnARK\bin\Release\SharpDX.Toolkit.dll
+C:\Users\Lars Keulen\Documents\GitHub\QuinARK\QuinnARK\bin\Release\SharpDX.Toolkit.Graphics.dll
+C:\Users\Lars Keulen\Documents\GitHub\QuinARK\QuinnARK\bin\Release\clipper_library.dll
+C:\Users\Lars Keulen\Documents\GitHub\QuinARK\QuinnARK\bin\Release\LeagueSharp.xml
+C:\Users\Lars Keulen\Documents\GitHub\QuinARK\QuinnARK\bin\Release\SharpDX.Toolkit.xml
+C:\Users\Lars Keulen\Documents\GitHub\QuinARK\QuinnARK\bin\Release\SharpDX.Toolkit.Graphics.xml
+C:\Users\Lars Keulen\Documents\GitHub\QuinARK\QuinnARK\obj\Debug\Quin ARK.csprojResolveAssemblyReference.cache
+C:\Users\Lars Keulen\Documents\GitHub\QuinARK\QuinnARK\obj\Debug\Quin ARK.exe
+C:\Users\Lars Keulen\Documents\GitHub\QuinARK\QuinnARK\obj\Debug\Quin ARK.pdb

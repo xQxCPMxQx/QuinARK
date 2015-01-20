@@ -50,89 +50,129 @@ namespace Tristana
 
 
 
-
             //Main Menu Name
-
-
             Config = new Menu("Quinn By ScienceARK", "QuinnARK", true);
 
-
-
             //Orbwalker Menu
-
-
-            Orbwalker = new Orbwalking.Orbwalker(Config.AddSubMenu(new Menu("Orbwalking", "Orbwalking")));
             TargetSelector.AddToMenu(Config.AddSubMenu(new Menu("Target Selector", "TS")));
-
-
+            Orbwalker = new Orbwalking.Orbwalker(Config.AddSubMenu(new Menu("Orbwalking", "Orbwalking")));
+            
             //Keykind Menu
-
-
             var combo = Config.AddSubMenu(new Menu("Combo", "combo"));
             combo.AddItem(new MenuItem("Combo Mode", "Combo Mode"))
             .SetValue(new KeyBind("space".ToCharArray()[0], KeyBindType.Press));
+        
+            //Combo Menu
+            combo.AddItem(new MenuItem("UseQ", "Use Q").SetValue(true));
+            combo.AddItem(new MenuItem("UseE", "Use E").SetValue(true));
+            combo.AddItem(new MenuItem("UseR", "Use R").SetValue(true));
 
+           //Laneclear Menu
+            var Laneclear = new Menu("Laneclear", "Laneclear");
+            Config.AddSubMenu(new Menu("Laneclear", "Laneclear"));
 
             //Misc Menu
-
-
             Config.SubMenu("Misc").AddItem(new MenuItem("AG", "Anti Gapcloser").SetValue(true));
             Config.SubMenu("Misc").AddItem(new MenuItem("INT", "Interrupt Spells").SetValue(true));
             Config.SubMenu("Misc").AddItem(new MenuItem("ALEVEL", "Use Autoleveler").SetValue(true));
 
+            //Items Menu
+            Config.SubMenu("Items").AddItem(new MenuItem("Botrk", "Botrk").SetValue(true));
 
-            //Combo Menu
-  
+            //Draw Menu
+            var drawMenu = Config.AddSubMenu(new Menu("Drawing", "Drawing"));
+            drawMenu.AddItem(new MenuItem("Draw_Disabled", "Disable all Drawing", true).SetValue(true));
+            drawMenu.AddItem(new MenuItem("Draw_Q", "Draw Q", true).SetValue(true));
+            drawMenu.AddItem(new MenuItem("Draw_W", "Draw W", true).SetValue(true));
+            drawMenu.AddItem(new MenuItem("Draw_E", "Draw E", true).SetValue(true));
 
-            combo.AddItem(new MenuItem("UseQ", "Use Q - Rapid Fire").SetValue(true));
-            combo.AddItem(new MenuItem("UseE", "Use E - Explosive Shot").SetValue(true));
-            combo.AddItem(new MenuItem("UseR", "Use R Finisher").SetValue(true));
-
-
-           //Laneclear Menu
-            var Laneclear = new Menu("Laneclear", "Laneclear");
-
-            Config.AddSubMenu(new Menu("Laneclear", "Laneclear"));
-
-
-           //Author
-
+            //Author Menu
             Config.AddSubMenu(new Menu("ScienceARK Series!", "ScienceARK Series!"));
-
-            
-           //Draw Menu
-            var drawMenu = new Menu("Drawing", "Drawing");
-
-            drawMenu.AddItem(new MenuItem("Draw_Disabled", "Disable all Drawing").SetValue(false));
-            drawMenu.AddItem(new MenuItem("Draw_Q", "Draw Q")).SetValue(true);
-            drawMenu.AddItem(new MenuItem("Draw_W", "Draw W")).SetValue(true);
-            drawMenu.AddItem(new MenuItem("Draw_E", "Draw E")).SetValue(true);
-
-
-
+         
+           
+                       
             Config.AddToMainMenu();
 
-          
+        
             Game.OnGameUpdate += Game_OnGameUpdate;
             Drawing.OnDraw += Drawing_OnDraw;
 
 
             //Interrupter & Gapcloser
+            Interrupter.OnPossibleToInterrupt += Interrupter_OnPossibleToInterrupt;
             AntiGapcloser.OnEnemyGapcloser += AntiGapCloser_OnEnemyGapcloser;
 
 
         }
 
-        //Interrupter & Gapcloser Configuration
+
+
+
+
+
+
+        //Configuration > Interrupter & gapcloser 
+        private static void Interrupter_OnPossibleToInterrupt(Obj_AI_Hero unit, InterruptableSpell spell)
+        {
+            if (E.IsReady() && unit.IsValidTarget(E.Range) && Config.Item("Interrupt").GetValue<bool>())
+                E.CastOnUnit(unit);
+        }        
         private static void AntiGapCloser_OnEnemyGapcloser(ActiveGapcloser gapcloser)
         {
-            
+            if (E.IsReady() && gapcloser.Sender.IsValidTarget(E.Range) && Config.Item("AntiGap").GetValue<bool>())
+                E.CastOnUnit(gapcloser.Sender);
         }
 
-        //Drawing Configuration
+      
+        
+        
+        
+        
+        
+            
+        //Configuration > Combo
+        private static void Game_OnGameUpdate(EventArgs args)
+        {
 
+            if (Config.Item("Combo Mode").GetValue<KeyBind>().Active)
+            {
+                var Target = TargetSelector.GetTarget(Q.Range, TargetSelector.DamageType.Physical);
+                var Botrk = ItemData.Blade_of_the_Ruined_King.GetItem();
+                if (Target == null)
+                    return;
+                if (Q.IsReady() && Target.IsValidTarget(Q.Range)) ;
+                {
+                    Q.CastIfHitchanceEquals(Target, HitChance.High, true);
+                }
+                if (E.IsReady() && Target.IsValidTarget(E.Range)) ;
+                {
+                    E.CastOnUnit(Target);
+                }
+                if (R.IsReady() && Target.IsValidTarget(E.Range)) ;
+                {
+                    R.Cast();
+                }
+
+            }
+
+        } 
+        
+        
+        
+        
+        //Configuration > Drawing
         private static void Drawing_OnDraw(EventArgs args)
         {
+           
+            //Draw Skill Cooldown on Champ
+            var pos = Drawing.WorldToScreen(ObjectManager.Player.Position);
+            if (R.IsReady() && Config.Item("Rrdy").GetValue<bool>())
+            {
+                Drawing.DrawText(pos.X, pos.Y, Color.Gold, "R is Ready!");
+            }
+            
+            
+                        
             if (Config.Item("Draw_Disabled").GetValue<bool>())
             return;
 
@@ -149,54 +189,10 @@ namespace Tristana
             if (Config.Item("Edraw").GetValue<bool>())
                 if (E.Level > 0)
                     Utility.DrawCircle(ObjectManager.Player.Position, E.Range, E.IsReady() ? Color.DarkGreen : Color.DarkOrange);
-            
 
-
-
-
+          
         }
 
-            // Combo Configuration
-            private static void Game_OnGameUpdate(EventArgs args)
-            {
- 	      
-                if (Config.Item("Combo Mode").GetValue<KeyBind>().Active)
-                {
-                    var Target = TargetSelector.GetTarget(Q.Range, TargetSelector.DamageType.Physical);
-                    var Botrk = ItemData.Blade_of_the_Ruined_King.GetItem();
-                    if (Target == null)
-                        return;
-                    if (Q.IsReady() && Target.IsValidTarget(Q.Range));
-                    {
-                        Q.CastIfHitchanceEquals(Target, HitChance.High, true);
-                    }
-                    if (E.IsReady() && Target.IsValidTarget(E.Range));
-                    {
-                        E.CastIfHitchanceEquals(Target, HitChance.High, true);
-                    }
-                    if (R.IsReady() && Target.IsValidTarget(E.Range));
-                    {
-                        R.Cast();
-                    }
-                    if (Botrk.IsReady() && Botrk.IsOwned(ObjectManager.Player) && Botrk.IsInRange(Target)) ;
-                    {
-                        Botrk.Cast();
-                    }
-                }
-
-            }      
+     
     }
 }
-
-
- 
-
-// Drawing.OnDraw += Drawing_OnDraw;
- 
-// var combo = Config.AddSubMenu(new Menu("Combo", "combo"));
-// combo.AddItem(new MenuItem("Combo Mode", "Combo Mode"))
-// .SetValue(new KeyBind("X".ToCharArray()[0], KeyBindType.Press));
-
-// ItemData. >>item list shows 
-
-
