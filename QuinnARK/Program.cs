@@ -65,10 +65,12 @@ namespace Tristana
             TargetSelector.AddToMenu(Config.AddSubMenu(new Menu("Target Selector", "TS")));
 
 
+            //Keykind Menu
+
 
             var combo = Config.AddSubMenu(new Menu("Combo", "combo"));
             combo.AddItem(new MenuItem("Combo Mode", "Combo Mode"))
-            .SetValue(new KeyBind("X".ToCharArray()[0], KeyBindType.Press));
+            .SetValue(new KeyBind("space".ToCharArray()[0], KeyBindType.Press));
 
 
             //Misc Menu
@@ -86,22 +88,32 @@ namespace Tristana
             combo.AddItem(new MenuItem("UseE", "Use E - Explosive Shot").SetValue(true));
             combo.AddItem(new MenuItem("UseR", "Use R Finisher").SetValue(true));
 
+
+           //Laneclear Menu
+
+            Config.AddSubMenu(new Menu("Laneclear", "Laneclear"));
+
+
            //Author
 
-            Config.SubMenu("ScienceARK Series");
+            Config.AddSubMenu(new Menu("ScienceARK Series!", "ScienceARK Series!"));
 
             
-            //Main MENU!!
+           //Draw Menu
+            var drawMenu = new Menu("Drawing", "Drawing");
+
+            drawMenu.AddItem(new MenuItem("Disable Drawing", "Disable Drawing"));
+            drawMenu.AddItem(new MenuItem("Draw_Q", "Draw Q"));
+            drawMenu.AddItem(new MenuItem("Draw_W", "Draw W"));
+            drawMenu.AddItem(new MenuItem("Draw_E", "Draw E"));
+
 
 
             Config.AddToMainMenu();
-              
+
+
+            // Sliders, Keybindings, Bools <          
             Game.OnGameUpdate += Game_OnGameUpdate;
-
-
-            //Draw??
-
-
             Drawing.OnDraw += Drawing_OnDraw;
 
 
