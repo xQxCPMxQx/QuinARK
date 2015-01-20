@@ -82,7 +82,7 @@ namespace Tristana
 
 
             //Combo Menu
-
+  
 
             combo.AddItem(new MenuItem("UseQ", "Use Q - Rapid Fire").SetValue(true));
             combo.AddItem(new MenuItem("UseE", "Use E - Explosive Shot").SetValue(true));
@@ -90,6 +90,7 @@ namespace Tristana
 
 
            //Laneclear Menu
+            var Laneclear = new Menu("Laneclear", "Laneclear");
 
             Config.AddSubMenu(new Menu("Laneclear", "Laneclear"));
 
@@ -102,32 +103,60 @@ namespace Tristana
            //Draw Menu
             var drawMenu = new Menu("Drawing", "Drawing");
 
-            drawMenu.AddItem(new MenuItem("Disable Drawing", "Disable Drawing"));
-            drawMenu.AddItem(new MenuItem("Draw_Q", "Draw Q"));
-            drawMenu.AddItem(new MenuItem("Draw_W", "Draw W"));
-            drawMenu.AddItem(new MenuItem("Draw_E", "Draw E"));
+            drawMenu.AddItem(new MenuItem("Draw_Disabled", "Disable all Drawing").SetValue(false));
+            drawMenu.AddItem(new MenuItem("Draw_Q", "Draw Q")).SetValue(true);
+            drawMenu.AddItem(new MenuItem("Draw_W", "Draw W")).SetValue(true);
+            drawMenu.AddItem(new MenuItem("Draw_E", "Draw E")).SetValue(true);
 
 
 
             Config.AddToMainMenu();
 
-
-            // Sliders, Keybindings, Bools <          
+          
             Game.OnGameUpdate += Game_OnGameUpdate;
             Drawing.OnDraw += Drawing_OnDraw;
 
 
-            
+            //Interrupter & Gapcloser
+            AntiGapcloser.OnEnemyGapcloser += AntiGapCloser_OnEnemyGapcloser;
+
+
         }
 
-        private static void Drawing_OnDraw(EventArgs args)
+        //Interrupter & Gapcloser Configuration
+        private static void AntiGapCloser_OnEnemyGapcloser(ActiveGapcloser gapcloser)
         {
             
         }
 
+        //Drawing Configuration
+
+        private static void Drawing_OnDraw(EventArgs args)
+        {
+            if (Config.Item("Draw_Disabled").GetValue<bool>())
+            return;
+
+            foreach (var tar in ObjectManager.Get<Obj_AI_Hero>().Where(enemy => enemy.IsValidTarget(2000)))
+            {
+
+            }
+            if (Config.Item("Qdraw").GetValue<bool>())
+                if(Q.Level > 0)
+                    Utility.DrawCircle(ObjectManager.Player.Position, Q.Range, Q.IsReady() ? Color.DarkGreen : Color.DarkOrange);
+            if (Config.Item("Qdraw").GetValue<bool>())
+                if (W.Level > 0)
+                    Utility.DrawCircle(ObjectManager.Player.Position, W.Range, W.IsReady() ? Color.DarkGreen : Color.DarkOrange);
+            if (Config.Item("Edraw").GetValue<bool>())
+                if (E.Level > 0)
+                    Utility.DrawCircle(ObjectManager.Player.Position, E.Range, E.IsReady() ? Color.DarkGreen : Color.DarkOrange);
+            
+
+
+
+
+        }
+
             // Combo Configuration
-
-
             private static void Game_OnGameUpdate(EventArgs args)
             {
  	      
