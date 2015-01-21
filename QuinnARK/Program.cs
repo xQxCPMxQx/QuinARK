@@ -8,7 +8,7 @@ using LeagueSharp.Common;
 using Color = System.Drawing.Color;
 using SharpDX;
 
-namespace Tristana
+namespace Quinn
 {
     class Program
     {
@@ -18,7 +18,6 @@ namespace Tristana
             CustomEvents.Game.OnGameLoad += OnLoad;
         }
 
-        //Feel free to Edit this Assembly *ScienceARK*
 
         public const string CHAMP_NAME = "Quinn";
         public static int SpellRangeTick;
@@ -41,10 +40,11 @@ namespace Tristana
 
             //Spells
 
-            Q = new Spell(SpellSlot.Q,1000);
-            Q.SetSkillshot(0.25f, 80, 1550, true, SkillshotType.SkillshotLine);
+            Q = new Spell(SpellSlot.Q,1010);
+            Q.SetSkillshot(0.25f, 160f, 1150, true, SkillshotType.SkillshotLine);
 
-            E = new Spell(SpellSlot.E, 800);
+            E = new Spell(SpellSlot.E, 880);
+            E.SetTargetted(0.25f, 2000f);
             
             R = new Spell(SpellSlot.R, 550);
 
@@ -114,18 +114,22 @@ namespace Tristana
         //Configuration > Interrupter & gapcloser 
         private static void Interrupter_OnPossibleToInterrupt(Obj_AI_Hero unit, InterruptableSpell spell)
         {
-            if (E.IsReady() && unit.IsValidTarget(E.Range) && Config.Item("Interrupt").GetValue<bool>())
+            if (E.IsReady() && unit.IsValidTarget(E.Range))
                 E.CastOnUnit(unit);
-        }        
+        }  
+      
         private static void AntiGapCloser_OnEnemyGapcloser(ActiveGapcloser gapcloser)
         {
-            if (E.IsReady() && gapcloser.Sender.IsValidTarget(E.Range) && Config.Item("AntiGap").GetValue<bool>())
+            if (E.IsReady() && gapcloser.Sender.IsValidTarget(E.Range))
                 E.CastOnUnit(gapcloser.Sender);
         }
 
       
-        
-        
+        //Quinn's E will do noting when pantheon has his passive
+        public static bool IsHePantheon(Obj_AI_Hero target)
+        {
+            return target.Buffs.All(buff => buff.Name == "pantheonpassivebuff");
+        }
         
         
         
