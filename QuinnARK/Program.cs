@@ -81,11 +81,11 @@ namespace Quinn
 
             //Draw Menu
             var drawMenu = Config.AddSubMenu(new Menu("Drawing", "Drawing"));
-            drawMenu.AddItem(new MenuItem("Draw_Disabled", "Disable all Drawing", true).SetValue(true));
-            drawMenu.AddItem(new MenuItem("Draw_Q", "Draw Q", true).SetValue(true));
-            drawMenu.AddItem(new MenuItem("Draw_W", "Draw W", true).SetValue(true));
-            drawMenu.AddItem(new MenuItem("Draw_E", "Draw E", true).SetValue(true));
-            drawMenu.AddItem(new MenuItem("Draw_R", "Draw R", true).SetValue(true)); // check with global R drawing 
+            drawMenu.AddItem(new MenuItem("Draw_Disabled", "Disable all Drawing").SetValue(true));
+            drawMenu.AddItem(new MenuItem("Draw_Q", "Draw Q").SetValue(true));
+            drawMenu.AddItem(new MenuItem("Draw_W", "Draw W").SetValue(true));
+            drawMenu.AddItem(new MenuItem("Draw_E", "Draw E").SetValue(true));
+            drawMenu.AddItem(new MenuItem("Draw_R", "Draw R").SetValue(true)); // check with global R drawing 
 
             //Author Menu
             Config.AddSubMenu(new Menu("ScienceARK Series!", "ScienceARK Series!"));
@@ -135,7 +135,7 @@ namespace Quinn
         
         
             
-        //Configuration > Combo
+        //Configuration > Combo (simple)
         private static void Game_OnGameUpdate(EventArgs args)
         {
 
@@ -166,6 +166,7 @@ namespace Quinn
         
         
         //Configuration > Drawing
+
         private static void Drawing_OnDraw(EventArgs args)
         {
            
@@ -181,17 +182,16 @@ namespace Quinn
             if (Config.Item("Draw_Disabled").GetValue<bool>())
             return;
 
-            Spell[] spellist = { Q, E };
-            foreach (Spell spell in spellist)
-            {
-               // var menuItem = GetValue<Circle>("Draw" + spell.Slot);
-               // if (menuItem.Active && spell.Level > 0)
-               //    Render.Circle.DrawCircle(ObjectManager.Player.Position, spell.Range, menuItem.Color);
+          foreach(var tar in ObjectManager.Get<Obj_AI_Hero>().Where(enemy => enemy.IsValidTarget(2000)))
+          {
 
-               // if (menuItem.Active && spell.Level > 0 && IsValorMode())
-               //     Render.Circle.DrawCircle(ObjectManager.Player.Position, R.Range, menuItem.Color);
-            }
-
+          }
+          if (Config.Item("Qdraw").GetValue<bool>())
+              if (Q.Level > 0)
+                  Utility.DrawCircle(ObjectManager.Player.Position, Q.Range, Q.IsReady() ? Color.DarkGreen : Color.DarkOrange);
+          if (Config.Item("Edraw").GetValue<bool>())
+              if (E.Level > 0)
+                  Utility.DrawCircle(ObjectManager.Player.Position, Q.Range, Q.IsReady() ? Color.DarkGreen : Color.DarkOrange);
           
         }
 
@@ -199,19 +199,3 @@ namespace Quinn
     }
 }
 
-
-//            foreach (var tar in ObjectManager.Get<Obj_AI_Hero>().Where(enemy => enemy.IsValidTarget(2000)))
-  //          {
-//
-//              }
-//
-//            
- //           if (Config.Item("Qdraw").GetValue<bool>())
- //              if(Q.Level > 0)
- //             Utility.DrawCircle(ObjectManager.Player.Position, Q.Range, Q.IsReady() ? Color.DarkGreen : Color.DarkOrange);
-  //          if (Config.Item("Qdraw").GetValue<bool>())
- //               if (W.Level > 0)
-//                    Utility.DrawCircle(ObjectManager.Player.Position, W.Range, W.IsReady() ? Color.DarkGreen : Color.DarkOrange);
-//            if (Config.Item("Edraw").GetValue<bool>())
-//                if (E.Level > 0)
- //                   Utility.DrawCircle(ObjectManager.Player.Position, E.Range, E.IsReady() ? Color.DarkGreen : Color.DarkOrange);
